@@ -28,7 +28,14 @@ packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
-	use("glepnir/lspsaga.nvim")
+	-- use("glepnir/lspsaga.nvim")
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({
+		"lewis6991/gitsigns.nvim",
+		tag = "release",
+	})
+	use("dinhhuy258/git.nvim") -- For git blame & browse
+	use("~/Code/neovim/lspsaga.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
 end)

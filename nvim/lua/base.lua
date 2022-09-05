@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.opt.formatoptions:append({ "r" })
 
 -- Mac
-vim.opt.clipboard:append({ "unnamedplus" })
+-- vim.opt.clipboard:append({ "unnamedplus" })
 
 vim.api.nvim_create_autocmd("InsertEnter", { command = "set norelativenumber" })
 vim.api.nvim_create_autocmd("InsertLeave", { command = "set relativenumber" })

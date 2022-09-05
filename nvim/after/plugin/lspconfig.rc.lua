@@ -4,9 +4,10 @@ if not status then
 end
 
 local on_attach = function(client, bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local bufopts = { noremap = true, silent = true }
 
-	if client.name == "sumneko_lua" or client.name == "intelephense" then
+	if client.name == "sumneko_lua" or client.name == "intelephense" or client.name == "gopls" then
 		client.resolved_capabilities.document_formatting = false -- 0.7 and earlier
 	end
 
@@ -21,9 +22,14 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 end
 
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 -- LUA langauge server
 nvim_lsp.sumneko_lua.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -44,11 +50,13 @@ nvim_lsp.sumneko_lua.setup({
 -- })
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- GoLang language server
 nvim_lsp.gopls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
