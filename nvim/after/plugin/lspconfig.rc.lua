@@ -45,9 +45,6 @@ nvim_lsp.sumneko_lua.setup({
 })
 
 -- PHP language server
--- nvim_lsp.psalm.setup({
--- 	on_attach = on_attach,
--- })
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

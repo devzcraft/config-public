@@ -1,4 +1,8 @@
 local keymap = vim.keymap
+-- Save to clipboard
+keymap.set("v", "<leader>y", '"+y')
+keymap.set("n", "<leader>yy", '"+yy')
+keymap.set("n", "<leader>p", '"+p')
 
 -- x does not copy in buffer
 -- keymap.set("n", "x", '"_x')
@@ -39,8 +43,5 @@ keymap.set("n", "//", "<Cmd>nohlsearch<Cr>")
 keymap.set("n", "<leader>u", "mQviwU`Q")
 keymap.set("n", "<leader>l", "mQviwu`Q")
 
--- Normal mode
-keymap.set("i", "jj", "<Esc>")
-
 -- Save file
-keymap.set("i", "kk", "<Cmd>:w<Cr><Esc>")
+keymap.set("i", "jj", "<Cmd>:w<Cr><Esc>")
