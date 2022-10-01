@@ -43,5 +43,8 @@ keymap.set("n", "//", "<Cmd>nohlsearch<Cr>")
 keymap.set("n", "<leader>u", "mQviwU`Q")
 keymap.set("n", "<leader>l", "mQviwu`Q")
 
--- Save file
+-- Save file and exit to normal mode
 keymap.set("i", "jj", "<Cmd>:w<Cr><Esc>")
+
+-- Leader keymap
+vim.g.mapleader = " "

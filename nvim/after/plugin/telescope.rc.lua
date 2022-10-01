@@ -13,47 +13,59 @@ end
 
 telescope.setup({
 	defaults = {
-		mappings = {
-			n = {
-				["q"] = actions.close,
+		layout_config = {
+			horizontal = {
+				height = 0.99,
+				preview_cutoff = 0,
+				prompt_position = "bottom",
+				width = 0.9,
+			},
+			center = {
+				width = 0.5,
+				height = 0.4,
+				preview_cutoff = 40,
+				prompt_position = "top",
 			},
 		},
+		mappings = {
+			n = {
+				["<C-c>"] = actions.close,
+			},
+		},
+		file_ignore_patterns = { "node_modules", "vendor" },
 	},
 	extensions = {
 		file_browser = {
 			theme = "dropdown",
 			hijack_netrw = true,
-			-- 		-- your custom insert mode mappings
-			-- 		["i"] = {
-			-- 			["<C-w>"] = function()
-			-- 				vim.cmd("normal vbd")
-			-- 			end,
-			-- 		},
-			-- 		["n"] = {
-			-- 			-- your custom normal mode mappings
-			-- 			["N"] = fb_actions.create,
-			-- 			["h"] = fb_actions.goto_parent_dir,
-			-- 			["/"] = function()
-			-- 				vim.cmd("startinsert")
-			-- 			end,
-			-- 		},
+			["n"] = {
+				["/"] = function()
+					vim.cmd("startinsert")
+				end,
+			},
 		},
+	},
+	pickers = {
+		find_files = {},
 	},
 })
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set("n", ";f", function()
+vim.keymap.set("n", "<leader>f", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = false,
+		initial_mode = "normal",
 	})
 end)
-vim.keymap.set("n", ";r", function()
+vim.keymap.set("n", "<leader>r", function()
 	builtin.live_grep()
 end)
-vim.keymap.set("n", ";b", function()
-	builtin.buffers()
+vim.keymap.set("n", "<leader>b", function()
+	builtin.buffers({
+		initial_mode = "normal",
+	})
 end)
 vim.keymap.set("n", ",,", function()
 	telescope.extensions.file_browser.file_browser({

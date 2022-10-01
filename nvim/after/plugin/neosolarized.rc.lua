@@ -1,19 +1,21 @@
-local status, n = pcall(require, 'neosolarized')
-if (not status) then return end
+local status, n = pcall(require, "neosolarized")
+if not status then
+	return
+end
 
 n.setup({ comment_italics = true })
 
-local colorbuddy = require('colorbuddy.init')
+local colorbuddy = require("colorbuddy.init")
 local Color = colorbuddy.Color
 local colors = colorbuddy.colors
 local Group = colorbuddy.Group
 local groups = colorbuddy.groups
 local styles = colorbuddy.styles
 
-Color.new('black', '#000000')
-Group.new('CursorLine', colors.none, colors.base03, styles.NONE, colors.base1)
-Group.new('CursorLineNr', colors.yellow, colors.black, styles.NONE, colors.base1)
-Group.new('Visual', colors.none, colors.base03, styles.reverse)
+Color.new("black", "#000000")
+Group.new("CursorLine", colors.none, colors.base03, styles.NONE, colors.base1)
+Group.new("CursorLineNr", colors.yellow, colors.black, styles.NONE, colors.base1)
+Group.new("Visual", colors.none, colors.base03, styles.reverse)
 
 local cError = groups.Error.fg
 local cInfo = groups.Information.fg
@@ -28,3 +30,18 @@ Group.new("DiagnosticUnderlineError", colors.none, colors.none, styles.undercurl
 Group.new("DiagnosticUnderlineWarn", colors.none, colors.none, styles.undercurl, cWarn)
 Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl, cInfo)
 Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)
+
+local bg = Color.new("neosolarized_bg", "#082129")
+local txt = Color.new("neosolarized_text", "#2aa198")
+
+Group.new("TelescopeBorder", bg, bg)
+Group.new("TelescopeNormal", colors.base1, bg)
+
+Group.new("TelescopePromptTitle", txt)
+Group.new("TelescopePromptBorder", colors.base03, colors.base03)
+Group.new("TelescopePromptNormal", colors.base1, colors.base03)
+
+Group.new("TelescopePreviewBorder", bg, bg)
+Group.new("TelescopePreviewTitle", txt)
+
+Group.new("TelescopeResultsTitle", txt)

@@ -47,3 +47,7 @@ vim.opt.formatoptions:append({ "r" })
 
 vim.api.nvim_create_autocmd("InsertEnter", { command = "set norelativenumber" })
 vim.api.nvim_create_autocmd("InsertLeave", { command = "set relativenumber" })
+
+vim.diagnostic.config({
+	update_in_insert = true,
+})
