@@ -3,15 +3,13 @@ if not status then
 	return
 end
 
-saga.init_lsp_saga({
-	-- max_preview_lines = 70,
-})
+saga.init_lsp_saga()
 
 local opts = { noremap = true, silent = true }
--- vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-vim.keymap.set("i", "<C-k>", "<Cmd>Lspsaga signature_help<CR>", opts)
-vim.keymap.set("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
-vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- vim.keymap.set("n", "<c-j>", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+-- vim.keymap.set("n", "k", "<cmd>lspsaga hover_doc<cr>", opts)
+-- vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<cr>", opts)
+-- vim.keymap.set("i", "<c-k>", "<cmd>Lspsaga signature_help<cr>", opts)
+-- vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<cr>", opts)
+-- vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<cr>", opts)
+-- vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", { silent = true })

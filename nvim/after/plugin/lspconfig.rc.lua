@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true }
 
 	if client.name == "sumneko_lua" or client.name == "intelephense" or client.name == "gopls" then
-		client.resolved_capabilities.document_formatting = false -- 0.7 and earlier
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -38,6 +38,7 @@ nvim_lsp.sumneko_lua.setup({
 			},
 
 			workspace = {
+				preloadFileSize = 1024,
 				checkThirdParty = false, -- THIS IS THE IMPORTANT LINE TO ADD
 				library = vim.api.nvim_get_runtime_file("", true),
 			},
