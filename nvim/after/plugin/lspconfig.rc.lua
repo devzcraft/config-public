@@ -7,9 +7,10 @@ local on_attach = function(client, bufnr)
 	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local bufopts = { noremap = true, silent = true }
 
-	if client.name == "sumneko_lua" or client.name == "intelephense" or client.name == "gopls" then
-		client.server_capabilities.documentFormattingProvider = false
-	end
+	-- if client.name == "sumneko_lua" or client.name == "intelephense" or client.name == "gopls" then
+	-- if client.name == "gopls" then
+	-- 	client.server_capabilities.documentFormattingProvider = false
+	-- end
 
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -25,7 +26,7 @@ end
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- LUA langauge server
 nvim_lsp.sumneko_lua.setup({
@@ -44,6 +45,11 @@ nvim_lsp.sumneko_lua.setup({
 			},
 		},
 	},
+})
+
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- PHP language server

@@ -10,7 +10,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.phpcbf,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.gofmt,
-		-- null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.code_actions.gitsigns,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -19,7 +19,7 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+					vim.lsp.buf.format({ bufnr = bufnr })
 					vim.lsp.buf.formatting_sync()
 				end,
 			})

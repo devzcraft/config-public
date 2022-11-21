@@ -39,4 +39,5 @@ packer.startup(function(use)
 	use("dinhhuy258/git.nvim") -- For git blame & browse
 	use("folke/which-key.nvim")
 	use("nvim-tree/nvim-tree.lua")
+	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
 end)
