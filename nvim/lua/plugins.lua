@@ -35,6 +35,12 @@ packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		tag = "release",
 	})
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 	use("dinhhuy258/git.nvim") -- For git blame & browse
 	use("folke/which-key.nvim")
 	use("nvim-tree/nvim-tree.lua")
