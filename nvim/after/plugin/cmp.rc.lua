@@ -90,9 +90,9 @@ cmp.setup({
 		}),
 	}),
 	sources = cmp.config.sources({
+		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		-- { name = "buffer" },
-		{ name = "luasnip" },
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -105,7 +105,13 @@ cmp.setup({
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
+
 			return vim_item
 		end,
 	},
 })
+
+vim.cmd([[
+  set completeopt=noselect,menuone,preview
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]])

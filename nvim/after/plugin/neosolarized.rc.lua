@@ -1,6 +1,6 @@
 local status, n = pcall(require, "neosolarized")
 if not status then
-	return
+    return
 end
 
 n.setup({ comment_italics = true })
@@ -12,7 +12,9 @@ local Group = colorbuddy.Group
 local groups = colorbuddy.groups
 local styles = colorbuddy.styles
 
+Color.new("white", "#ffffff")
 Color.new("black", "#000000")
+Group.new("Normal", colors.base1, colors.NONE, styles.NONE)
 Group.new("CursorLine", colors.none, colors.base03, styles.NONE, colors.base1)
 Group.new("CursorLineNr", colors.yellow, colors.black, styles.NONE, colors.base1)
 Group.new("Visual", colors.none, colors.base03, styles.reverse)
@@ -45,3 +47,9 @@ Group.new("TelescopePreviewBorder", bg, bg)
 Group.new("TelescopePreviewTitle", txt)
 
 Group.new("TelescopeResultsTitle", txt)
+
+Group.new("LspDiagnosticsError", colors.none, cError:dark():dark():dark(), styles.NONE, colors.NONE)
+Group.new("LspDiagnosticsErrorLineNr", cError, cError:dark():dark():dark(), styles.NONE, cError)
+
+Group.new("LspDiagnosticsInfo", colors.none, cInfo:dark():dark():dark(), styles.NONE, colors.NONE)
+Group.new("LspDiagnosticsInfoLineNr", cInfo, cInfo:dark():dark():dark(), styles.NONE, colors.NONE)

@@ -1,24 +1,25 @@
 local status, saga = pcall(require, "lspsaga")
 if not status then
-	return
+    return
 end
 
 saga.init_lsp_saga({
-	code_action_keys = {
-		quit = "<C-c>",
-		exec = "<CR>",
-	},
-	definition_action_keys = {
-		quit = "<C-c>",
-	},
-	rename_action_quit = "<C-c>",
-	finder_action_keys = {
-		open = { "o", "<CR>" },
-		vsplit = "s",
-		split = "i",
-		tabe = "t",
-		quit = { "<C-c>" },
-	},
+    code_action_icon = "",
+    code_action_keys = {
+        quit = "<C-c>",
+        exec = "<CR>",
+    },
+    definition_action_keys = {
+        quit = "<C-c>",
+    },
+    rename_action_quit = "<C-c>",
+    finder_action_keys = {
+        open = { "o", "<CR>" },
+        vsplit = "s",
+        split = "i",
+        tabe = "t",
+        quit = { "<C-c>" },
+    },
 })
 
 local keymap = vim.keymap.set
