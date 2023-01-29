@@ -11,7 +11,7 @@ packer.startup(function(use)
         requires = { "tjdevries/colorbuddy.nvim" },
     })
     use("folke/lsp-colors.nvim")
-    -- use("ray-x/go.nvim")
+    use("ray-x/go.nvim")
     -- use("ray-x/guihua.lua") -- recommanded if need floating window support
 
     use("nvim-lua/plenary.nvim") -- Common lua utilities for Neovim

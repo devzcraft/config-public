@@ -51,3 +51,8 @@ vim.api.nvim_create_autocmd("InsertLeave", { command = "set relativenumber" })
 vim.diagnostic.config({
 	update_in_insert = true,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})
