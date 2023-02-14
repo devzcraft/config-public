@@ -1,35 +1,36 @@
 local status, ts = pcall(require, "nvim-treesitter.configs")
 if not status then
-    return
+	return
 end
 
 ts.setup({
-    highlight = {
-        enable = true,
-        disable = {},
-    },
-    indent = {
-        enable = true,
-        disable = {},
-    },
-    ensure_installed = {
-        "toml",
-        "markdown",
-        "php",
-        "json",
-        "yaml",
-        "css",
-        "html",
-        "lua",
-    },
-    autotag = {
-        enable = true,
-    },
+	highlight = {
+		enable = true,
+		disable = {},
+	},
+	indent = {
+		enable = true,
+		disable = {},
+	},
+	ensure_installed = {
+		"toml",
+		"markdown",
+		"php",
+		"json",
+		"yaml",
+		"css",
+		"html",
+		"lua",
+		"go",
+	},
+	autotag = {
+		enable = true,
+	},
 })
 
 local hl = function(group, opts)
-    opts.default = true
-    vim.api.nvim_set_hl(0, group, opts)
+	opts.default = true
+	vim.api.nvim_set_hl(0, group, opts)
 end
 
 -- Misc {{{

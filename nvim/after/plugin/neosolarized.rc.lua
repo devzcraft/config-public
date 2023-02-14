@@ -1,6 +1,6 @@
 local status, n = pcall(require, "neosolarized")
 if not status then
-    return
+	return
 end
 
 n.setup({ comment_italics = true })
@@ -14,6 +14,7 @@ local styles = colorbuddy.styles
 
 Color.new("white", "#ffffff")
 Color.new("black", "#000000")
+
 Group.new("Normal", colors.base1, colors.NONE, styles.NONE)
 Group.new("CursorLine", colors.none, colors.base03, styles.NONE, colors.base3)
 Group.new("CursorLineNr", colors.yellow, colors.base03, styles.NONE, colors.base1)

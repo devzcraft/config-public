@@ -11,7 +11,7 @@ mason.setup()
 
 lspconfig.setup({
 	ensure_installed = {
-		"sumneko_lua",
+		"golangci_lint_ls",
 		"tailwindcss",
 		"intelephense",
 		"gopls",

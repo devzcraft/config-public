@@ -12,5 +12,5 @@ vim.opt.termguicolors = true
 
 tree.setup()
 
-vim.keymap.set("n", "<M-1>", "<CMD>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<D-1>", "<CMD>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<C-\\>", "<CMD>NvimTreeFindFile<CR>")

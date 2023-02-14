@@ -35,7 +35,7 @@ colors:
 font:
     # Normal (roman):
     normal:
-        family: JetBrains Mono Nerd Font
+        family: JetBrainsMono Nerd Font
         style: Regular
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
