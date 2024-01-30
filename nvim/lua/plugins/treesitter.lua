@@ -13,13 +13,13 @@ return {
 			ensure_installed = {
 				"toml",
 				"markdown",
-				"php",
 				"json",
 				"yaml",
 				"css",
 				"html",
 				"lua",
 				"go",
+				"sql",
 			},
 			autotag = {
 				enable = true,
