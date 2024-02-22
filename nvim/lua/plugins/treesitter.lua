@@ -19,7 +19,9 @@ return {
 				"html",
 				"lua",
 				"go",
+				"gowork",
 				"sql",
+				"markdown_inline",
 			},
 			autotag = {
 				enable = true,

@@ -1,5 +1,5 @@
 return {
-	"glepnir/lspsaga.nvim",
+	"nvimdev/lspsaga.nvim",
 	dependencies = {
 		"folke/lsp-colors.nvim",
 		"neovim/nvim-lspconfig", -- LSP
@@ -18,7 +18,6 @@ return {
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 			-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-			vim.keymap.set("n", "<leader>l", vim.diagnostic.open_float, bufopts)
 		end
 
 		-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
@@ -36,7 +35,7 @@ return {
 
 		-- GoLang language server
 		nvim_lsp.golangci_lint_ls.setup({
-			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			filetypes = { "work","go", "gomod", "gowork", "gotmpl" },
 		})
 
 		-- nvim_lsp.gopls.setup({
@@ -96,5 +95,7 @@ return {
 		keymap("n", "<C-b>", "<CMD>Lspsaga finder def+ref<CR>", { silent = true })
 		keymap("n", "<C-e>", "<CMD>Lspsaga rename<CR>")
 		keymap({ "n", "v" }, "<M-CR>", "<cmd>Lspsaga code_action<CR>", { silent = true })
+		keymap({ "n", "v" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
+		keymap({ "n", "v" }, "<leader>l", "<cmd>Lspsaga show_workspace_diagnostics ++float<CR>", { silent = true })
 	end,
 }

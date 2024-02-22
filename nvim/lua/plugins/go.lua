@@ -16,7 +16,7 @@ return {
 			fillstruct = "gopls",
 			verbose = true,
 			lsp_inlay_hints = {
-				enable = true,
+				enable = false,
 			},
 			luasnip = true,
 		})
