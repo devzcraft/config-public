@@ -5,4 +5,7 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "dark"
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.tmpl", command = "setfiletype go" })
+vim.api.nvim_create_autocmd(
+	{ "BufRead", "BufNewFile", "BufWinEnter" },
+	{ pattern = "*.tmpl", command = "setfiletype html" }
+)

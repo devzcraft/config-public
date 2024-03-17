@@ -14,7 +14,7 @@ return {
 			lsp_cfg = false,
 			goimport = "gopls", -- if set to 'gopls' will use gopls format, also goimport
 			fillstruct = "gopls",
-			verbose = true,
+			verbose = false,
 			lsp_inlay_hints = {
 				enable = false,
 			},
