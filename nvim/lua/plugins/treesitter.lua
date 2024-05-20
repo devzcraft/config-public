@@ -19,6 +19,8 @@ return {
 				"html",
 				"lua",
 				"go",
+				"gomod",
+				"gosum",
 				"gowork",
 				"sql",
 				"markdown_inline",

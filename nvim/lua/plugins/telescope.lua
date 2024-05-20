@@ -59,6 +59,7 @@ return {
 		vim.keymap.set("n", "<leader>b", function()
 			builtin.buffers({
 				initial_mode = "normal",
+				sort_lastused = true,
 			})
 		end)
 	end,

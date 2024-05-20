@@ -4,15 +4,17 @@ return {
 		"rcarriga/nvim-dap-ui",
 		"mfussenegger/nvim-dap",
 		"theHamsta/nvim-dap-virtual-text",
+		"neovim/nvim-lspconfig",
 		{ "ray-x/guihua.lua", build = "cd lua/fzy && make" },
 		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	},
 	ft = { "go", "gomod" },
 	build = ':lua require("go.install").update_all_sync()',
+
 	config = function()
 		require("go").setup({
 			lsp_cfg = false,
-			goimport = "gopls", -- if set to 'gopls' will use gopls format, also goimport
+			goimports = "gopls", -- if set to 'gopls' will use gopls format, also goimport
 			fillstruct = "gopls",
 			verbose = false,
 			lsp_inlay_hints = {
@@ -35,7 +37,7 @@ return {
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*.go",
 			callback = function()
-				require("go.format").goimport()
+				require("go.format").goimports()
 			end,
 			group = format_sync_grp,
 		})
