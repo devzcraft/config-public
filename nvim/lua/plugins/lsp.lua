@@ -28,14 +28,10 @@ return {
 		-- LUA langauge server
 
 		nvim_lsp = require("lspconfig")
-		nvim_lsp.tailwindcss.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
 
 		-- GoLang language server
 		nvim_lsp.golangci_lint_ls.setup({
-			filetypes = { "work","go", "gomod", "gowork", "gotmpl" },
+			filetypes = { "work", "go", "gomod", "gowork", "gotmpl" },
 		})
 
 		-- nvim_lsp.gopls.setup({
@@ -56,7 +52,7 @@ return {
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 			underline = true,
 			update_in_insert = false,
-			virtual_text = { spacing = 4, prefix = "●" },
+			virtual_text = { spacing = 4, prefix = "" },
 			severity_sort = true,
 		})
 
@@ -68,6 +64,9 @@ return {
 		end
 
 		require("lspsaga").setup({
+			ui = {
+				kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+			},
 			lightbulb = {
 				enable = false,
 			},
@@ -97,5 +96,7 @@ return {
 		keymap({ "n", "v" }, "<M-CR>", "<cmd>Lspsaga code_action<CR>", { silent = true })
 		keymap({ "n", "v" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
 		keymap({ "n", "v" }, "<leader>l", "<cmd>Lspsaga show_workspace_diagnostics ++float<CR>", { silent = true })
+		keymap({ "n", "i" }, "<C-a>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+		keymap({ "n", "i", "v" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
 	end,
 }

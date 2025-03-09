@@ -5,7 +5,11 @@ return {
 		{ "<C-\\>", "<cmd>NvimTreeFindFile<cr>" },
 	},
 	config = function()
-		require("nvim-tree").setup()
+		require("nvim-tree").setup({
+          view = {
+            width = 60,
+          },
+        })
 
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1

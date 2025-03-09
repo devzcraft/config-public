@@ -11,8 +11,6 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"golangci_lint_ls",
-				"tailwindcss",
-				"intelephense",
 				"gopls",
 			},
 		})

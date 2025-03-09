@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"mfussenegger/nvim-dap",
+		"nvim-neotest/nvim-nio",
 		"theHamsta/nvim-dap-virtual-text",
 		"neovim/nvim-lspconfig",
 		{ "ray-x/guihua.lua", build = "cd lua/fzy && make" },
@@ -21,6 +22,15 @@ return {
 				enable = false,
 			},
 			luasnip = true,
+			dap_debug = true,
+			-- null_ls = {           -- set to false to disable null-ls setup
+			--     golangci_lint = {
+			--       -- method = {"NULL_LS_DIAGNOSTICS_ON_SAVE", "NULL_LS_DIAGNOSTICS_ON_OPEN"}, -- when it should run
+			--       -- disable = {'errcheck', 'staticcheck'}, -- linters to disable empty by default
+			--       -- enable = {'govet', 'ineffassign','revive', 'gosimple'}, -- linters to enable; empty by default
+			--       severity = vim.diagnostic.severity.INFO, -- severity level of the diagnostics
+			--     },
+			-- },
 		})
 
 		vim.keymap.set("n", "<leader>db", "<cmd>GoDebug -b<cr>")
