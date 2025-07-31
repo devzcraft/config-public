@@ -4,7 +4,7 @@ return {
 		"rcarriga/nvim-dap-ui",
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
-		"theHamsta/nvim-dap-virtual-text",
+		-- "theHamsta/nvim-dap-virtual-text",
 		"neovim/nvim-lspconfig",
 		{ "ray-x/guihua.lua", build = "cd lua/fzy && make" },
 		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
