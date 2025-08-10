@@ -30,9 +30,9 @@ return {
 		nvim_lsp = require("lspconfig")
 
 		-- GoLang language server
-		nvim_lsp.golangci_lint_ls.setup({
-			filetypes = { "work", "go", "gomod", "gowork", "gotmpl" },
-		})
+		-- nvim_lsp.golangci_lint_ls.setup({
+		-- 	filetypes = { "work", "go", "gomod", "gowork", "gotmpl" },
+		-- })
 
 		-- nvim_lsp.gopls.setup({
 		-- 	on_attach = on_attach,
@@ -55,13 +55,6 @@ return {
 			virtual_text = { spacing = 4, prefix = "" },
 			severity_sort = true,
 		})
-
-		-- Diagnostic symbols in the sign column (gutter)
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
 
 		require("lspsaga").setup({
 			ui = {

@@ -23,14 +23,6 @@ return {
 			},
 			luasnip = true,
 			dap_debug = true,
-			-- null_ls = {           -- set to false to disable null-ls setup
-			--     golangci_lint = {
-			--       -- method = {"NULL_LS_DIAGNOSTICS_ON_SAVE", "NULL_LS_DIAGNOSTICS_ON_OPEN"}, -- when it should run
-			--       -- disable = {'errcheck', 'staticcheck'}, -- linters to disable empty by default
-			--       -- enable = {'govet', 'ineffassign','revive', 'gosimple'}, -- linters to enable; empty by default
-			--       severity = vim.diagnostic.severity.INFO, -- severity level of the diagnostics
-			--     },
-			-- },
 		})
 
 		vim.keymap.set("n", "<leader>db", "<cmd>GoDebug -b<cr>")
@@ -39,9 +31,9 @@ return {
 
 		vim.g.null_ls_disable = true
 
-		local cfg = require("go.lsp").config() -- config() return the go.nvim gopls setup
+		-- local cfg = require("go.lsp").config() -- config() return the go.nvim gopls setup
 
-		require("lspconfig").gopls.setup(cfg)
+		-- require("lspconfig").gopls.setup(cfg)
 
 		local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 		vim.api.nvim_create_autocmd("BufWritePre", {
@@ -51,5 +43,23 @@ return {
 			end,
 			group = format_sync_grp,
 		})
+
+		vim.diagnostic.config({
+			update_in_insert = true,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.INFO] = " ",
+					[vim.diagnostic.severity.HINT] = "󰠠 ",
+				},
+				linehl = {
+					[vim.diagnostic.severity.ERROR] = "Error",
+					[vim.diagnostic.severity.WARN] = "Warn",
+					[vim.diagnostic.severity.INFO] = "Info",
+					[vim.diagnostic.severity.HINT] = "Hint",
+				},
+			},
+		}) -- })
 	end,
 }
