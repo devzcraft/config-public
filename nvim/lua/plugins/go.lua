@@ -28,6 +28,7 @@ return {
 		vim.keymap.set("n", "<leader>db", "<cmd>GoDebug -b<cr>")
 		vim.keymap.set("n", "<leader>ds", "<cmd>GoDebug<cr>")
 		vim.keymap.set("n", "<leader>dx", "<cmd>GoDebug -s<cr>")
+		vim.keymap.set("n", "<C-i>", "<cmd>GoImplements<cr>")
 
 		vim.g.null_ls_disable = true
 
