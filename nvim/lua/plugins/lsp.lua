@@ -16,9 +16,8 @@ return {
 			local bufopts = { noremap = true, silent = true }
 
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-			-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 		end
+        vim.api.nvim_set_keymap('n', '<C-i>', ':lua require("telescope.builtin").lsp_implementations()<CR>', {noremap = true, silent = true})
 
 		-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
